@@ -1,0 +1,9 @@
+{
+	"name": "RICKLibrary",
+	"description": "Library with various functions for delphi",
+	"version": "1.0.1",
+	"homepage": "",
+	"mainsrc": "./src",
+	"projects": [],
+	"dependencies": {}
+}

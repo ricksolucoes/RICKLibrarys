@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{91572B93-AC00-4830-9817-F65C7BAB1C19}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="RICKLibrarys.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Samples\Delphi\FMX\RICKLibrays.Demo.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="RICKLibrarys">
+        <MSBuild Projects="RICKLibrarys.dproj"/>
+    </Target>
+    <Target Name="RICKLibrarys:Clean">
+        <MSBuild Projects="RICKLibrarys.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RICKLibrarys:Make">
+        <MSBuild Projects="RICKLibrarys.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="RICKLibrays_Demo">
+        <MSBuild Projects="Samples\Delphi\FMX\RICKLibrays.Demo.dproj"/>
+    </Target>
+    <Target Name="RICKLibrays_Demo:Clean">
+        <MSBuild Projects="Samples\Delphi\FMX\RICKLibrays.Demo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RICKLibrays_Demo:Make">
+        <MSBuild Projects="Samples\Delphi\FMX\RICKLibrays.Demo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="RICKLibrarys;RICKLibrays_Demo"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="RICKLibrarys:Clean;RICKLibrays_Demo:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="RICKLibrarys:Make;RICKLibrays_Demo:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
