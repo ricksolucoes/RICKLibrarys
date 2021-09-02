@@ -1,7 +1,7 @@
 # RICKLibrary
 
 <p align="center">
-  <b>RICKCheckConnection</b> is a library for Delphi. Using delphi's Fluent Interface.<br> 
+  <b>RICKLibrary</b> is a library for Delphi. Using delphi's Fluent Interface.<br> 
 </p>
 
 <h2>⚙️ Install</h2>
