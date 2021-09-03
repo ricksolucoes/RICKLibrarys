@@ -4,6 +4,7 @@ interface
 
 uses
   FMX.Controls,
+  System.Character,
 
   RICK.Librarys.Interfaces;
 
@@ -219,7 +220,8 @@ var
 begin
   LValue := EmptyStr;
   for X := 0 to Pred(Length(AValue)) do
-    if CharInSet(AValue.Chars[X], ['0' .. '9']) then
+    { Check for number }
+    if AValue.Chars[X].IsNumber then
       LValue := LValue + AValue.Chars[X];
 
   Result := LValue;

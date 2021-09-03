@@ -19,13 +19,13 @@ type
     lytTypeData: TLayout;
     cbxDataFormat: TComboBox;
     lblDataFormat: TLabel;
-    btnExecute: TRectangle;
-    Label8: TLabel;
     Layout2: TLayout;
     lblResult: TLabel;
-    procedure btnExecuteClick(Sender: TObject);
+    StyleBook: TStyleBook;
+    btnExecute: TSpeedButton;
     procedure FormShow(Sender: TObject);
     procedure cbxDataFormatChange(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -43,7 +43,28 @@ uses
   RICK.Librarys,
   RICK.Librarys.Interfaces;
 
-procedure TfrmDemo.btnExecuteClick(Sender: TObject);
+procedure TfrmDemo.cbxDataFormatChange(Sender: TObject);
+begin
+  case cbxDataFormat.ItemIndex of
+    0: edtData.Text:= 'OK';
+    1: edtData.Text:= '456OK123';
+    2: edtData.Text:= '123OK232';
+    3: edtData.Text:= '12312313';
+    4: edtData.Text:= '123123232123';
+    5: edtData.Text:= '31122100';
+    6: edtData.Text:= '233821';
+  else
+    Exit;
+  end;
+  edtData.SetFocus;
+end;
+
+procedure TfrmDemo.FormShow(Sender: TObject);
+begin
+  edtData.SetFocus;
+end;
+
+procedure TfrmDemo.SpeedButton1Click(Sender: TObject);
 var
   LRICKLibrarys: iRICKLibrarys;
 begin
@@ -72,25 +93,5 @@ begin
   end;
 end;
 
-procedure TfrmDemo.cbxDataFormatChange(Sender: TObject);
-begin
-  case cbxDataFormat.ItemIndex of
-    0: edtData.Text:= 'OK';
-    1: edtData.Text:= '456OK123';
-    2: edtData.Text:= '123OK232';
-    3: edtData.Text:= '12312313';
-    4: edtData.Text:= '123123232123';
-    5: edtData.Text:= '31122100';
-    6: edtData.Text:= '233821';
-  else
-    Exit;
-  end;
-  edtData.SetFocus;
-end;
-
-procedure TfrmDemo.FormShow(Sender: TObject);
-begin
-  edtData.SetFocus;
-end;
 
 end.
