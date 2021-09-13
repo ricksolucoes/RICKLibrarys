@@ -14,7 +14,7 @@
 
 - By using BOOS
 ```shell
-$ boss install https://github.com/ricksolucoes/RICKShowForm
+$ boss install https://github.com/ricksolucoes/RICKLibrary
 ```
 - Manual Installation
   - Download the RICKLibrary;
