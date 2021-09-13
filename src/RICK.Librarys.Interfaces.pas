@@ -9,12 +9,12 @@ type
     function StringInSet(const S: String;
       const StringSet: array of String): Boolean;
     function OnlyNumber(const AValue: string): string;
-    function Mask(AMascara, AValue: string): string;
+    function Mask(Const AMascara, AValue: string): string;
     function IEFormat(Const ANumber: string; Const AState: string): string;
     function FormatValue(Const AValue: string): string;
     function FormatDate(Const AValue: string): string;
     function FormatPeso(const AValue: string): string;
-    procedure DelayedSetFocus(AValue: TControl);
+    procedure DelayedSetFocus(Const AValue: TControl);
   end;
 implementation
 
