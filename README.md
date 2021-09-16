@@ -23,7 +23,23 @@ $ boss install https://github.com/ricksolucoes/RICKLibrary
  ## ⚡️ How to use the project
 
   Example of using the **RICKLibrary**
-
+- Show Keyboard
+```delphi  
+  uses
+    RICK.Librarys;
+  begin
+    TRICKLibrarys.New.ShowKeyboard(edtData);
+  end;
+```
+- Hide Keyboard
+```delphi  
+  uses
+    RICK.Librarys;
+  begin
+    TRICKLibrarys.New.HideKeyboard(edtData);
+  end;
+```
+- Other actions 
 ```delphi  
   uses
     RICK.Librarys,
