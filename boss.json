@@ -1,7 +1,7 @@
 {
 	"name": "RICKLibrary",
 	"description": "Library with various functions for delphi",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"homepage": "",
 	"mainsrc": "./src",
 	"projects": [],
