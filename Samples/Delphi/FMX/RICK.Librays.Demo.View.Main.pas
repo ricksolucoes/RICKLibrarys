@@ -57,6 +57,7 @@ begin
     Exit;
   end;
   edtData.SetFocus;
+  TRICKLibrarys.New.HideKeyboard(edtData);
 end;
 
 procedure TfrmDemo.FormShow(Sender: TObject);

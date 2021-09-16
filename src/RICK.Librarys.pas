@@ -4,6 +4,9 @@ interface
 
 uses
   FMX.Controls,
+  FMX.Platform,
+  FMX.VirtualKeyBoard,
+
   System.Character,
 
   RICK.Librarys.Interfaces;
@@ -25,6 +28,8 @@ type
     function FormatDate(Const AValue: string): string;
     function FormatPeso(const AValue: string): string;
     procedure DelayedSetFocus(Const AValue: TControl);
+    procedure ShowKeyboard(Const AValue: TControl);
+    procedure HideKeyboard(Const AValue: TControl);
   end;
 
 implementation
@@ -111,6 +116,17 @@ begin
   except
     Result := FormatFloat('#,##0.00', 0);
   end;
+end;
+
+procedure TRICKLibrarys.HideKeyboard(const AValue: TControl);
+var
+  LService: IFMXVirtualKeyboardService;
+begin
+  TPlatformServices.Current.SupportsPlatformService(
+    IFMXVirtualKeyboardService, iInterface(LService));
+
+  if not (LService = nil) then
+    LService.HideVirtualKeyboard;
 end;
 
 function TRICKLibrarys.IEFormat(const ANumber, AState: string): string;
@@ -227,6 +243,23 @@ begin
   Result := LValue;
 end;
 
+procedure TRICKLibrarys.ShowKeyboard(const AValue: TControl);
+var
+  LService: IFMXVirtualKeyboardService;
+begin
+  TPlatformServices.Current.SupportsPlatformService(
+    IFMXVirtualKeyboardService, iInterface(LService));
+
+  if  LService = nil then
+    Exit;
+
+
+  LService.ShowVirtualKeyboard(AValue);
+
+  if ((not (AValue = nil)) and (AValue.CanFocus)) then
+    DelayedSetFocus(AValue);
+
+end;
 function TRICKLibrarys.StringInSet(const S: String;
 const StringSet: array of String): Boolean;
 var

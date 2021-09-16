@@ -15,6 +15,8 @@ type
     function FormatDate(Const AValue: string): string;
     function FormatPeso(const AValue: string): string;
     procedure DelayedSetFocus(Const AValue: TControl);
+    procedure ShowKeyboard(Const AValue: TControl);
+    procedure HideKeyboard(Const AValue: TControl);
   end;
 implementation
 
