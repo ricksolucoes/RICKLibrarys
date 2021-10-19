@@ -66,8 +66,11 @@ $ boss install https://github.com/ricksolucoes/RICKLibrary
       5:
         lblResult.Text:= LRICKLibrarys.FormatDate(edtData.Text);
       6:
+        lblResult.Text:= LRICKLibrarys.FormatDate(edtData.Text, True);
+      7:
         lblResult.Text:= LRICKLibrarys.FormatPeso(edtData.Text);
-      7: LRICKLibrarys.DelayedSetFocus(edtData);
+      8:
+        LRICKLibrarys.DelayedSetFocus(edtData);
 
     end;
 ```

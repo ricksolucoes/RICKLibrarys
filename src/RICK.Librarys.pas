@@ -25,7 +25,8 @@ type
     function Mask(Const AMascara, AValue: string): string;
     function IEFormat(Const ANumber: string; Const AState: string): string;
     function FormatValue(Const AValue: string): string;
-    function FormatDate(Const AValue: string): string;
+    function FormatDate(Const AValue: string; AValidateLength: Boolean = False): string; overload;
+    function FormatDate(Const AValue: TDate): string; overload;
     function FormatPeso(const AValue: string): string;
     procedure DelayedSetFocus(Const AValue: TControl);
     procedure ShowKeyboard(Const AValue: TControl);
@@ -63,19 +64,28 @@ begin
   inherited;
 end;
 
-function TRICKLibrarys.FormatDate(const AValue: string): string;
+function TRICKLibrarys.FormatDate(const AValue: string; AValidateLength: Boolean): string;
 var
   LValue: string;
 begin
   LValue := Copy(AValue, 1, 8);
   try
     if Length(LValue) < 8 then
-      LValue := Mask('##/##/####', LValue)
+    begin
+      LValue := Mask('##/##/####', LValue);
+      if AValidateLength then
+        if Length(Trim(LValue)) = 8 then
+          LValue:= FormatDate(StrToDate(LValue));
+    end
     else
     begin
       try
         LValue := Mask('##/##/####', LValue);
-        StrToDate(LValue);
+        case AValidateLength of
+          True: if Length(Trim(LValue)) = 10 then LValue:= FormatDate(StrToDate(LValue));
+          False: StrToDate(LValue)  
+        end;
+
       except
         LValue := EmptyStr;
       end;
@@ -84,6 +94,15 @@ begin
     Result := LValue;
   end;
 
+end;
+
+function TRICKLibrarys.FormatDate(const AValue: TDate): string;
+var
+  LDia, LMes, LAno : Word;
+begin
+  DecodeDate(AValue, LAno, LMes, LDia);
+
+  Result:= DateToStr(EncodeDate(LAno, LMes, LDia));
 end;
 
 function TRICKLibrarys.FormatPeso(const AValue: string): string;

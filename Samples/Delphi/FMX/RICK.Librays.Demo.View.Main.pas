@@ -52,7 +52,8 @@ begin
     3: edtData.Text:= '12312313';
     4: edtData.Text:= '123123232123';
     5: edtData.Text:= '31122100';
-    6: edtData.Text:= '233821';
+    6: edtData.Text:= '010199';
+    7: edtData.Text:= '233821';
   else
     Exit;
   end;
@@ -88,8 +89,11 @@ begin
     5:
       lblResult.Text:= LRICKLibrarys.FormatDate(edtData.Text);
     6:
+      lblResult.Text:= LRICKLibrarys.FormatDate(edtData.Text, True);
+    7:
       lblResult.Text:= LRICKLibrarys.FormatPeso(edtData.Text);
-    7: LRICKLibrarys.DelayedSetFocus(edtData);
+    8:
+      LRICKLibrarys.DelayedSetFocus(edtData);
 
   end;
 end;

@@ -12,7 +12,8 @@ type
     function Mask(Const AMascara, AValue: string): string;
     function IEFormat(Const ANumber: string; Const AState: string): string;
     function FormatValue(Const AValue: string): string;
-    function FormatDate(Const AValue: string): string;
+    function FormatDate(Const AValue: string; AValidateLength: Boolean = False): string; overload;
+    function FormatDate(Const AValue: TDate): string; overload;
     function FormatPeso(const AValue: string): string;
     procedure DelayedSetFocus(Const AValue: TControl);
     procedure ShowKeyboard(Const AValue: TControl);
